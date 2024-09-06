@@ -3,3 +3,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.form-divs {
+    @apply flex flex-col gap-2 items-start justify-center;
+}
+
+.form-divs-input {
+    @apply px-5 py-3 border-[0.1em] border-gray-200 text-[0.80em] rounded-md shadow-sm cursor-pointer min-w-[300px];
+}
+
+.form-divs-select {
+    @apply px-3 py-3 border-[0.1em] border-gray-200 text-[0.80em] rounded-md shadow-sm cursor-pointer;
+}
+
+.prevNext-btn {
+    @apply w-[100px] h-[100px] rounded-full object-cover;
+}
+
+.home {
+    @apply relative bg-color-2 bg-opacity-10;
+}
+
+.button-container {
+    @apply hidden  absolute w-full top-[40%] px-[3rem];
+}
+
+.home:hover .button-container {
+    @apply block transition-all ease-in-out duration-1000;
+}

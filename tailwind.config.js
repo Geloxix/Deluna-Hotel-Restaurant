@@ -15,6 +15,10 @@ export default {
          },
          transitionDuration : {
             "500ms": "500ms",
+            "600ms": "600ms",
+            "700ms": "700ms",
+            "800ms": "800ms",
+            "900ms": "900ms",
          }
       },
    },
