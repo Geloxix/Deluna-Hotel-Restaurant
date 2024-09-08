@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { RiPhoneFill, RiMailFill } from "@remixicon/react";
-import { socmedLinks } from "../constants/utils";
+import { socmedLinks } from "../../constants/utils";
 
 const SocMed = () => {
     return (

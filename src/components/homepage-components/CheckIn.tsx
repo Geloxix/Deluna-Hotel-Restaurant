@@ -2,7 +2,7 @@
 const CheckIn = () => {
     return(
         <div className="flex items-center justify-center absolute bg-transparent bottom-[-300px] w-full font-poppins">
-            <form action="" className="flex items-center gap-10 px-[70px] py-[60px] bg-white rounded-xl shadow-lg">
+            <form action="" className="flex items-center gap-10 px-[60px] py-[50px] bg-white rounded-xl shadow-lg">
                 <div className="form-divs">
                     <label htmlFor="">Check in</label>
                     <input type="date" name="checkIn" id="checkIn" className="form-divs-input" />

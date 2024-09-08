@@ -12,6 +12,8 @@ export default {
          colors: {
             "color-1": "#1cc3b2",
             "color-2": "#0E2737",
+            "color-3": "#636a76",
+            'color-4': '#D2D2D2'
          },
          transitionDuration : {
             "500ms": "500ms",
@@ -19,6 +21,9 @@ export default {
             "700ms": "700ms",
             "800ms": "800ms",
             "900ms": "900ms",
+         },
+         boxShadow: {
+            'custom-dark': '4px 4px 15px #E8E8E8',
          }
       },
    },

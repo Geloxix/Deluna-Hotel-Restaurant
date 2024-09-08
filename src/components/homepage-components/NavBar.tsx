@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
-import { navLinks } from "../constants/utils";
+import { ArrowRightOutlined } from "@mui/icons-material";
+import { navLinks } from "../../constants/utils";
 import SocMed from "./SocMed";
 
 
@@ -12,16 +13,23 @@ const NavBar = () => {
                 <h1 className="font-semibold text-xl">De Luna</h1>
                 <ul className="flex items-center ">
                     {
-                        navLinks.map((navLink, index) => (
+                        navLinks.map((navLink) => (
                             <NavLink 
                                 key={navLink.id}
                                 to={navLink.path}
-                                className={`${ navLinks.length - 1 === index ? 'mr-0 bg-color-1 text-white px-[40px] py-[28px] hover:bg-color-2 transition-all ease-linear' : 'mr-[3rem] hover:opacity-30 transition-all ease-linear duration-700'}`}
+                                className={`${'mr-[3rem] hover:opacity-30 transition-all ease-linear duration-700'}`}
                             >
                                 { navLink.name }
                             </NavLink>
-                        ))
+                        ))  
                     }
+                    <Link 
+                        to="/book"
+                        className="bg-color-1 text-white px-[40px] py-[28px] hover:bg-color-2 transition-all ease-linear flex gap-2"
+                    >
+                        Book Now
+                        <ArrowRightOutlined className="text-white" />
+                    </Link>
                 </ul>
             </nav>
         </header>

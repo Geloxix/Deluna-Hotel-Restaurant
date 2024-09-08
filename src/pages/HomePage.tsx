@@ -1,8 +1,8 @@
 import Slider from "react-slick";
 import { useRef } from "react";
 
-import CheckIn from "../components/CheckIn";
-import AboutUs from "../components/AboutUs";
+import CheckIn from "../components/homepage-components/CheckIn";
+import AboutUs from "../components/homepage-components/AboutUs";
 
 import herobg1 from "../assets/images/hero-bg1.png";
 import herobg2 from "../assets/images/hero-bg2.png";

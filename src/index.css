@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .form-divs {
     @apply flex flex-col gap-2 items-start justify-center;
 }
@@ -21,13 +22,19 @@
 }
 
 .home {
-    @apply relative bg-color-2 bg-opacity-10;
+    @apply relative bg-color-2 bg-opacity-10 transition-all;
 }
 
 .button-container {
-    @apply hidden  absolute w-full top-[40%] px-[3rem];
+    @apply hidden  absolute w-full top-[40%] px-[3rem] transition-all duration-300;
+}
+.about-content {
+    @apply opacity-0 translate-y-10;
+}
+.about-animate {
+    @apply opacity-100 translate-y-0;
 }
 
 .home:hover .button-container {
-    @apply block transition-all ease-in-out duration-1000;
+    @apply block;
 }
