@@ -5,6 +5,16 @@
 @tailwind utilities;
 
 
+/*  homepage  animations*/
+.fadeInUp {
+    @apply  opacity-100 translate-y-0;
+}
+.fadeInLeft {
+    @apply opacity-100 translate-x-0;
+}
+
+
+/*  */
 .form-divs {
     @apply flex flex-col gap-2 items-start justify-center;
 }
@@ -18,7 +28,7 @@
 }
 
 .prevNext-btn {
-    @apply w-[100px] h-[100px] rounded-full object-cover;
+    @apply w-[90px] h-[90px] rounded-full object-cover;
 }
 
 .home {
@@ -26,7 +36,7 @@
 }
 
 .button-container {
-    @apply hidden  absolute w-full top-[40%] px-[3rem] transition-all duration-300;
+    @apply hidden absolute w-full top-[40%] px-[3rem] transition-all duration-300;
 }
 .about-content {
     @apply opacity-0 translate-y-10;
@@ -37,4 +47,15 @@
 
 .home:hover .button-container {
     @apply block;
+}
+/*  rooms*/
+.room-info {
+    @apply flex items-start justify-between gap-6 mb-4;
+}
+
+.room-text-content {
+    @apply opacity-100 translate-y-[100px];
+}
+.animate-room {
+    @apply opacity-0 translate-y-0;
 }

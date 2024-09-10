@@ -1,16 +1,20 @@
+import { motion } from "framer-motion";
 import Slider from "react-slick";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import CheckIn from "../components/homepage-components/CheckIn";
 import AboutUs from "../components/homepage-components/AboutUs";
+import AvailableRooms from "../components/homepage-components/AvailableRooms";
 
-import herobg1 from "../assets/images/hero-bg1.png";
-import herobg2 from "../assets/images/hero-bg2.png";
-import herobg3 from "../assets/images/hero-bg3.png";
+import { heroImages } from "../constants/utils";
+import { X } from "@mui/icons-material";
+
 
 
 
 const HomePage = () => {
+    const [ activeSlide, setActiveSlide ] = useState<number>(0);
+    const [ currentSlide, setCurrentSlide ] = useState<number>(0);
     let sliderRef = useRef<Slider | null>(null);
 
     const handleNextImg = () => {
@@ -31,7 +35,7 @@ const HomePage = () => {
     };
 
 
-    const images = [ herobg1, herobg2, herobg3 ];
+  
 
     return (
         <section className={``}>
@@ -41,19 +45,46 @@ const HomePage = () => {
             >   
                 
                 
-                <Slider {...settings } ref={slider => {sliderRef = slider}}>
+                <Slider 
+                    {...settings } 
+                    ref={slider => {sliderRef = slider}}
+                    beforeChange={(current, next) => { setActiveSlide(next), setCurrentSlide(current)}}
+                    className="relative"
+                    
+                >
                     {
-                        images.map((image, index) => (
+                        heroImages.map((image, index) => (
                             <div key={index} className="relative">
-                                <img src={image} alt="background hero image"/>
-                                <div className="absolute top-0 left-0 w-full h-full bg-color-2 bg-opacity-70 flex items-center justify-center flex-col  px-[5rem] font-poppins">
-
-                                    <h2 className={`text-white text-[0.90em] tracking-widest animate__animated  animate__fadeInUp`} 
-                                        style={{ animationDelay: '700ms'}}>HOTEL & RESORT</h2>
-                                    <h1 className="text-[5.5rem] mb-7 text-white animate__animated animate__fadeInUp duration-700" 
-                                        style={{ animationDelay: '800ms'}}>Welcome to De Luna</h1>
-                                    <button className="border-2 border-color-1 px-10 py-3 text-white rounded-sm hover:bg-color-1 transition-all hover:duration-500 animate__animated animate__fadeInUp " style={{ animationDelay: '900ms'}}>Discover Now</button>
-                                    
+                                <img src={image.path} alt="background hero image"/>
+                                <div 
+                                    className={`absolute top-0 left-0 w-full h-full bg-color-2 bg-opacity-70 px-[5rem] flex items-center justify-center font-poppins `}
+                                >
+                                    <div 
+                                    className={`flex flex-col items-center justify-center transition-all duration-300 ease-in `}
+                                    >
+                                        <motion.h2 
+                                            className={`text-white text-[1em] font-[500]  mb-6 tracking-[0.3em] `} 
+                                            initial={{ opacity: image.initialStyle.opacity, x: image.initialStyle.x, y: image.initialStyle.y }}
+                                            animate={{ opacity: activeSlide === image.slideId ? image.animatedStyle.opacity : image.initialStyle.opacity, x: activeSlide === image.slideId ? image.animatedStyle.x : image.initialStyle.x , y: activeSlide === image.slideId ? image.animatedStyle.y : image.initialStyle.y}}
+                                            transition={{ duration: 1, delay: 1}}
+                                        >
+                                            { image.hotel }
+                                        </motion.h2>
+                                        <motion.h1 
+                                            className={`text-[5.3rem] mb-7 font-[500] text-white`} 
+                                            initial={{ opacity: image.initialStyle.opacity, x: image.initialStyle.x, y: image.initialStyle.y }}
+                                            animate={{ opacity: activeSlide === image.slideId ? image.animatedStyle.opacity : image.initialStyle.opacity, x: activeSlide === image.slideId ? image.animatedStyle.x : image.initialStyle.x , y: activeSlide === image.slideId ? image.animatedStyle.y : image.initialStyle.y}}
+                                            transition={{ duration: 1, delay: 1.2}}
+                                        >{ image.greet }</motion.h1>
+                                        <motion.button 
+                                            className={`border-2 border-color-1 px-10 py-3 text-white rounded-sm hover:bg-color-1 hover:duration-500 `} 
+                                            initial={{ opacity: image.initialStyle.opacity, x: image.initialStyle.x, y: image.initialStyle.y }}
+                                            animate={{ opacity: activeSlide === image.slideId ? image.animatedStyle.opacity : image.initialStyle.opacity, x: activeSlide === image.slideId ? image.animatedStyle.x : image.initialStyle.x , y: activeSlide === image.slideId ? image.animatedStyle.y : image.initialStyle.y}}
+                                            transition={{ duration: 1, delay: 1.3}}
+                                        >
+                                            { image.btnText }
+                                        </motion.button>
+                                    </div> 
                                 </div>
                             </div>
                         ))
@@ -64,16 +95,15 @@ const HomePage = () => {
                     <div className="flex items-center justify-between w-full">
                          <button onClick={handlePrevImg}>
                             <img 
-                                src={images[1]} alt="previous image" 
+                                src={heroImages[currentSlide].path} alt="previous image" 
                                 className="prevNext-btn"
                             />
                         </button>
 
                         <button onClick={handleNextImg}>
                             <img 
-                                src={images[2]} alt="next image" 
-                                className={`prevNext-btn  cursor-pointer `}  
-                                
+                                src={heroImages[activeSlide].path} alt="next image" 
+                                className={`prevNext-btn  cursor-pointer `}    
                             />
                         </button>
                     </div>
@@ -87,10 +117,13 @@ const HomePage = () => {
                 <CheckIn />
             </div>
             
-            <section>
+            <div>
                 <AboutUs/>
-            </section>
+            </div>
 
+            <div>
+               <AvailableRooms />
+            </div>
         </section>
     );
 };

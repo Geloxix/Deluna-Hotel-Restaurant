@@ -1,6 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 
-import { ArrowRightOutlined } from "@mui/icons-material";
+import arrowRightLong from '../../assets/icons/right-long-solid.svg';
 import { navLinks } from "../../constants/utils";
 import SocMed from "./SocMed";
 
@@ -25,10 +25,10 @@ const NavBar = () => {
                     }
                     <Link 
                         to="/book"
-                        className="bg-color-1 text-white px-[40px] py-[28px] hover:bg-color-2 transition-all ease-linear flex gap-2"
+                        className="bg-color-1 text-white px-[40px] py-[28px] hover:bg-color-2 transition-all ease-linear flex items-center gap-3"
                     >
                         Book Now
-                        <ArrowRightOutlined className="text-white" />
+                        <img src={arrowRightLong} alt="" className="w-[15px]" />
                     </Link>
                 </ul>
             </nav>
