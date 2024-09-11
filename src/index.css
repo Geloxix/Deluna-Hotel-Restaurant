@@ -59,3 +59,9 @@
 .animate-room {
     @apply opacity-0 translate-y-0;
 }
+
+
+/* Room styles    */
+.room-text-span {
+    @apply text-color-5;
+}

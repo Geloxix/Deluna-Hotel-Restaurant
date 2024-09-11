@@ -7,7 +7,7 @@
             "img": "../src/assets/images/room1.png",
             "size": "30 ft",
             "pricePerDay": 300,
-            "capacity": "5-6 persons",
+            "capacity": "5 persons",
             "bed": "Kings Bed",
             "services": "Television, Wifi, Aircondition"
         },
@@ -29,7 +29,7 @@
             "img": "../src/assets/images/room3.png",
             "size": "30 ft",
             "pricePerDay": 300,
-            "capacity": "6-7 persons",
+            "capacity": "6 persons",
             "bed": "Kings Bed",
             "services": "Television, Wifi, Aircondition"
         },
@@ -40,7 +40,7 @@
             "img": "../src/assets/images/room4.png",
             "size": "30 ft",
             "pricePerDay": 300,
-            "capacity": "8-7 persons",
+            "capacity": "7 persons",
             "bed": "Kings Bed",
             "services": "Television, Wifi, Aircondition"
         },
@@ -50,7 +50,8 @@
             "roomName": "Royal Room",
             "img": "../src/assets/images/room5.png",
             "size": "40 ft",
-            "capacity": "7-8 persons",
+            "pricePerDay": 400,
+            "capacity": "8 persons",
             "bed": "Kings Bed",
             "services": "Television, Wifi, Aircondition"
         },
@@ -60,7 +61,8 @@
             "roomName": "Royal Kings VIP Room",
             "img": "../src/assets/images/room6.png",
             "size": "50 ft",
-            "capacity": "7-9 persons",
+            "pricePerDay": 600,
+            "capacity": "9 persons",
             "bed": "Kings Bed",
             "services": "Television, Wifi, Aircondition"
         }

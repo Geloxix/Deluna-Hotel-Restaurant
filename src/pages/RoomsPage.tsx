@@ -1,4 +1,6 @@
 import { RoomsTypes } from "../constants/types";
+
+import Rooms from "../components/rooms-page/Rooms";
 interface RoomsPageProps  {
     rooms: RoomsTypes[];
 };
@@ -6,7 +8,7 @@ interface RoomsPageProps  {
 const RoomsPage = ({ rooms }: RoomsPageProps ) => {
     return (
         <section>
-            <div>
+            <div className="py-[8rem] border-[1px] border-red-500 shadow-lg">
                 Rooms
             </div>
             
@@ -14,43 +16,10 @@ const RoomsPage = ({ rooms }: RoomsPageProps ) => {
                 <ul>
                     {
                         rooms.map((room: RoomsTypes) => (
-                            <li key={room.id}>
-                                <div>
-                                    <img src={room.img} alt={room.roomName} />
-                                </div>
-
-                                <div>
-                                    <h1>{room.roomName}</h1>
-                                    <h2>{room.pricePerDay}</h2>
-
-                                    <div>
-                                        <p>Size: <br />
-                                            <span>
-                                                {room.size}
-                                            </span>
-                                        </p>
-
-                                        <p>
-                                            Capacity: <br />
-                                            <span>{room.capacity}</span>
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <p>Bed: <br />
-                                            <span>
-                                                { room.bed}
-                                            </span>
-                                        </p>
-
-                                        <p>Services: <br />
-                                            <span>
-                                                { room.services }
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
+                            <Rooms 
+                                key={room.id}
+                                room={room}
+                            />
                         ))
                     }
                 </ul>
