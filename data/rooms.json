@@ -1,0 +1,68 @@
+{
+    "rooms": [
+        {
+            "id": 1,
+            "roomId": "01",
+            "roomName": "Room View Sea",
+            "img": "../src/assets/images/room1.png",
+            "size": "30 ft",
+            "pricePerDay": 300,
+            "capacity": "5-6 persons",
+            "bed": "Kings Bed",
+            "services": "Television, Wifi, Aircondition"
+        },
+        {
+            "id": 2,
+            "roomId": "02",
+            "roomName": "Small Room",
+            "img": "../src/assets/images/room2.png",
+            "size": "30 ft",
+            "pricePerDay": 300,
+            "capacity": "4 persons",
+            "bed": "Kings Bed",
+            "services": "Television, Wifi, Aircondition"
+        },
+        {
+            "id": 3,
+            "roomId": "03",
+            "roomName": "Premuim King Room",
+            "img": "../src/assets/images/room3.png",
+            "size": "30 ft",
+            "pricePerDay": 300,
+            "capacity": "6-7 persons",
+            "bed": "Kings Bed",
+            "services": "Television, Wifi, Aircondition"
+        },
+        {
+            "id": 4,
+            "roomId": "04",
+            "roomName": "Room VIP King",
+            "img": "../src/assets/images/room4.png",
+            "size": "30 ft",
+            "pricePerDay": 300,
+            "capacity": "8-7 persons",
+            "bed": "Kings Bed",
+            "services": "Television, Wifi, Aircondition"
+        },
+        {
+            "id": 5,
+            "roomId": "05",
+            "roomName": "Royal Room",
+            "img": "../src/assets/images/room5.png",
+            "size": "40 ft",
+            "capacity": "7-8 persons",
+            "bed": "Kings Bed",
+            "services": "Television, Wifi, Aircondition"
+        },
+        {
+            "id": 6,
+            "roomId": "06",
+            "roomName": "Royal Kings VIP Room",
+            "img": "../src/assets/images/room6.png",
+            "size": "50 ft",
+            "capacity": "7-9 persons",
+            "bed": "Kings Bed",
+            "services": "Television, Wifi, Aircondition"
+        }
+    ]
+}

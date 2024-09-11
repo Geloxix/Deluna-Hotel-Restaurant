@@ -7,14 +7,13 @@ import AboutUs from "../components/homepage-components/AboutUs";
 import AvailableRooms from "../components/homepage-components/AvailableRooms";
 
 import { heroImages } from "../constants/utils";
-import { X } from "@mui/icons-material";
 
 
 
 
 const HomePage = () => {
     const [ activeSlide, setActiveSlide ] = useState<number>(0);
-    const [ currentSlide, setCurrentSlide ] = useState<number>(0);
+    const [ currentSlide, setCurrentSlide ] = useState<number>(1);
     let sliderRef = useRef<Slider | null>(null);
 
     const handleNextImg = () => {
@@ -31,12 +30,11 @@ const HomePage = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 3500,
     };
 
 
   
-
     return (
         <section className={``}>
             <div 
@@ -66,7 +64,7 @@ const HomePage = () => {
                                             className={`text-white text-[1em] font-[500]  mb-6 tracking-[0.3em] `} 
                                             initial={{ opacity: image.initialStyle.opacity, x: image.initialStyle.x, y: image.initialStyle.y }}
                                             animate={{ opacity: activeSlide === image.slideId ? image.animatedStyle.opacity : image.initialStyle.opacity, x: activeSlide === image.slideId ? image.animatedStyle.x : image.initialStyle.x , y: activeSlide === image.slideId ? image.animatedStyle.y : image.initialStyle.y}}
-                                            transition={{ duration: 1, delay: 1}}
+                                            transition={{ duration: 0.8, delay: 2, easings: 'easeIn'}}
                                         >
                                             { image.hotel }
                                         </motion.h2>
@@ -74,13 +72,13 @@ const HomePage = () => {
                                             className={`text-[5.3rem] mb-7 font-[500] text-white`} 
                                             initial={{ opacity: image.initialStyle.opacity, x: image.initialStyle.x, y: image.initialStyle.y }}
                                             animate={{ opacity: activeSlide === image.slideId ? image.animatedStyle.opacity : image.initialStyle.opacity, x: activeSlide === image.slideId ? image.animatedStyle.x : image.initialStyle.x , y: activeSlide === image.slideId ? image.animatedStyle.y : image.initialStyle.y}}
-                                            transition={{ duration: 1, delay: 1.2}}
+                                            transition={{ duration: 0.8, delay: 2.3, easings: 'easeIn'}}
                                         >{ image.greet }</motion.h1>
                                         <motion.button 
                                             className={`border-2 border-color-1 px-10 py-3 text-white rounded-sm hover:bg-color-1 hover:duration-500 `} 
                                             initial={{ opacity: image.initialStyle.opacity, x: image.initialStyle.x, y: image.initialStyle.y }}
                                             animate={{ opacity: activeSlide === image.slideId ? image.animatedStyle.opacity : image.initialStyle.opacity, x: activeSlide === image.slideId ? image.animatedStyle.x : image.initialStyle.x , y: activeSlide === image.slideId ? image.animatedStyle.y : image.initialStyle.y}}
-                                            transition={{ duration: 1, delay: 1.3}}
+                                            transition={{ duration: 0.8, delay: 2.5, easings: 'easeIn'}}
                                         >
                                             { image.btnText }
                                         </motion.button>

@@ -36,7 +36,7 @@ const AvailableRooms = () => {
                 {...settings}
                 className=" my-[10rem] w-[100%]"
                 ref={slider => { sliderRef = slider}}
-                beforeChange={(current, next) => {setActiveSlide(next), console.log(current), console.log(next) }}
+                beforeChange={(current, next) => {setActiveSlide(next)}}
             >
                 {
                     rooms.map((room) => (
@@ -52,8 +52,8 @@ const AvailableRooms = () => {
                                     <motion.h1 
                                         className={`text-[3.5rem] mb-[3rem] font-[500]`}
                                         initial={{ opacity: 0, y: 90 }}
-                                        animate = {{ opacity: activeSlide === room.slideId ? 1 : 0, y: activeSlide === room.slideId ? 0 : 90 }}
-                                        transition={{ duration: 0.9, delay: 1 }}
+                                        animate = {{ opacity: activeSlide === room.slideId ? 1 : 0, y: activeSlide === room.slideId ? 0 : 80 }}
+                                        transition={{ duration: 1, delay: 1  }}
                                     >{room.roomName}
                                         
                                     </motion.h1>
@@ -61,8 +61,8 @@ const AvailableRooms = () => {
                                     <motion.p 
                                         className={`mb-8 `}
                                         initial={{ opacity: 0, y: 90 }}
-                                        animate = {{ opacity: activeSlide === room.slideId ? 1 : 0, y: activeSlide === room.slideId ? 0 : 90 }}
-                                        transition={{ duration: 1, delay: 1.3 }}
+                                        animate = {{ opacity: activeSlide === room.slideId ? 1 : 0, y: activeSlide === room.slideId ? 0 : 80 }}
+                                        transition={{ duration: 1, delay: 1.1 }}
                                     >
                                         <span className="text-color-1 text-5xl font-[500] mr-3">${room.pricePerDay}</span> / day
                                     </motion.p>
@@ -70,8 +70,8 @@ const AvailableRooms = () => {
                                     <motion.ul 
                                         className={`list-disc mb-9`}
                                         initial={{ opacity: 0, y: 90 }}
-                                        animate = {{ opacity: activeSlide === room.slideId ? 1 : 0, y: activeSlide === room.slideId ? 0 : 90 }}
-                                        transition={{ duration: 1.1, delay: 1.5 }}
+                                        animate = {{ opacity: activeSlide === room.slideId ? 1 : 0, y: activeSlide === room.slideId ? 0 : 80 }}
+                                        transition={{ duration: 1, delay: 1.2 }}
                                     >
                                         <li className={`room-info`}>
                                             <p className={`flex `}>
@@ -106,7 +106,7 @@ const AvailableRooms = () => {
                                         className={`self-start px-[4rem] py-4 bg-color-1 text-white hover:bg-white hover:text-color-1`}
                                         initial={{ opacity: 0, y: 90 }}
                                         animate = {{ opacity: activeSlide === room.slideId ? 1 : 0, y: activeSlide === room.slideId ? 0 : 90 }}
-                                        transition={{ duration: 0.9, delay: 1.4 }}
+                                        transition={{ duration: 1, delay: 1.3 }}
                                     >
                                         <Link 
                                             to="/details"

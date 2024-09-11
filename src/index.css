@@ -36,7 +36,7 @@
 }
 
 .button-container {
-    @apply hidden absolute w-full top-[40%] px-[3rem] transition-all duration-300;
+    @apply opacity-0 absolute w-full top-[40%] px-[3rem] transition-all duration-[400ms] ease-in-out;
 }
 .about-content {
     @apply opacity-0 translate-y-10;
@@ -46,7 +46,7 @@
 }
 
 .home:hover .button-container {
-    @apply block;
+    @apply opacity-100;
 }
 /*  rooms*/
 .room-info {

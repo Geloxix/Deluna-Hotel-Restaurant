@@ -1,4 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import 'animate.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,36 +15,58 @@ import RoomsPage from "./pages/RoomsPage";
 import PagesPage from "./pages/PagesPage";
 import ContactPage from "./pages/ContactPage";
 
-const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <MainLayOut />,
-        children: [
-            {
-                path: '/',
-                element: <HomePage />,
-            },
-            {
-                path: '/about',
-                element: <AboutPage />,
-            },
-            {
-                path: '/rooms',
-                element: <RoomsPage />,
-            },
-            {
-                path: '/pages',
-                element: <PagesPage />,
-            },
-            {
-                path: '/contact',
-                element: <ContactPage />,
-            }
-        ]
-    }
-]);
 
 const App = () => {
+    const [ rooms, setRooms ] = useState([]);
+    const [ error, setError ] = useState<string>();
+
+    useEffect(() => {
+
+        const fetchRooms = async() => {
+            try {
+                const res = await axios.get('/api/rooms');
+                setRooms(res.data);
+
+            } catch (error: any) {
+                setError(error.message);
+            } 
+
+        };
+
+
+        fetchRooms();
+
+    },[]);
+
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: <MainLayOut />,
+            children: [
+                {
+                    path: '/',
+                    element: <HomePage />,
+                },
+                {
+                    path: '/about',
+                    element: <AboutPage />,
+                },
+                {
+                    path: '/rooms',
+                    element: <RoomsPage rooms={rooms} />,
+                },
+                {
+                    path: '/pages',
+                    element: <PagesPage />,
+                },
+                {
+                    path: '/contact',
+                    element: <ContactPage />,
+                }
+            ]
+        }
+    ]);
+
 
     return (
         <RouterProvider router={router} />

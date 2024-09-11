@@ -72,7 +72,7 @@ export const heroImages = [
         btnText: 'Discover Now',
         initialStyle: {
             opacity: 0,
-            x: -90,
+            x: -100,
         },
         animatedStyle: {
             opacity: 1,
