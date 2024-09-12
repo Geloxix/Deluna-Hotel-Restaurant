@@ -51,7 +51,7 @@ const AboutUs = () => {
                     <div className="about-content grid grid-cols-2 gap-3 transition-all ease-in duration-600ms">
                         <div className='flex flex-col justify-between'>
                             <div className='overflow-hidden rounded-md'>
-                                <img src={img13} alt="" className='w-[100%] transition-all duration-500 ease-in-out  hover:scale-110'/>
+                                <img src={img13} alt="" className='w-[100%] transition-all  duration-500 ease-in-out  hover:scale-110'/>
                             </div>
                             
                             <div className='overflow-hidden rounded-md'>

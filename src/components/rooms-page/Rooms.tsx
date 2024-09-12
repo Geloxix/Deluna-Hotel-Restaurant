@@ -12,23 +12,23 @@ const Rooms = ({ room }: RoomsProps) => {
     const roomServices = room.services.slice(0, 10);
 
     return (
-        <div className="px-[15rem] flex font-poppins mt-10">
+        <div className=" flex font-poppins mt-[4rem]">
             <div className="mr-[40px]">
                 <img 
                     src={room.img} 
                     alt={room.roomName} 
-                    className="w-[400px]"
+                    className="rounded-md w-[450px]"
                 />
             </div>
 
-            <div className="py-10">
-                <h1 className="text-4xl mb-3 font-[500]">{room.roomName}</h1>
+            <div className="py-3">
+                <h1 className="text-4xl font-[500] text-color-3  mb-5">{room.roomName}</h1>
                 <h2 className="mb-5">
                     <span className="text-3xl text-color-1 font-[500]">${room.pricePerDay}</span> / day
                 </h2>
 
-                <div className="text-lg mb-10">
-                    <div className="flex items-start mb-3">
+                <div className="text-lg mb-6">
+                    <div className="flex items-start mb-1">
                         <p className="w-[150px]">
                             <span className="room-text-span">Size:</span> <br />
                             {room.size}
@@ -55,7 +55,7 @@ const Rooms = ({ room }: RoomsProps) => {
 
                 <Link 
                     to={`/rooms/${room.roomId}`}
-                    className="font-[500] flex items-center gap-2 hover:text-color-1 transition-all duration-300"
+                    className="font-[500] flex items-center gap-2 text-[1.1em] text-color-1 hover:text-color-2 transition-all duration-300"
                 >
                     View details
                     <FaRightLong />

@@ -65,3 +65,7 @@
 .room-text-span {
     @apply text-color-5;
 }
+
+.room-form-inputs {
+    @apply py-4 px-2 border-[.15rem] border-zinc-100;
+}
