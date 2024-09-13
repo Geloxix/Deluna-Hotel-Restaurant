@@ -37,11 +37,11 @@ export const socmedLinks = [
 
 //services icons/ animation
 export const servicesIcons = [ 
-    { id: 1, name: 'Transportation', path: icon1, animation: 'transition-all duration-[600ms] ease-in' },
-    { id: 2, name: 'Reiseservice', path: icon2, animation: 'transition-all duration-[700ms] ease-in' },
-    { id: 3, name: 'Spa Relaxation', path: icon3, animation: 'transition-all duration-[800ms] ease-in' },
-    { id: 4, name: 'Restaurant', path: icon4, animation: 'transition-all duration-[900ms] ease-in' },
-    { id: 5, name: 'Bar & Drinks', path: icon4, animation: 'transition-all duration-[1000ms] ease-in' },
+    { id: 1, name: 'Transportation', path: icon1, animateDelay: 0.3 },
+    { id: 2, name: 'Reiseservice', path: icon2, animateDelay: 0.4 },
+    { id: 3, name: 'Spa Relaxation', path: icon3, animateDelay: 0.5 },
+    { id: 4, name: 'Restaurant', path: icon4, animateDelay: 0.6 },
+    { id: 5, name: 'Bar & Drinks', path: icon4, animateDelay: 0.7 },
 ];
 
 ///heros image

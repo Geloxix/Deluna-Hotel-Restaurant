@@ -11,6 +11,7 @@ import MainLayOut from "./layout/MainLayOut";
 //pages
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import RoomPage, { roomDataLoader} from "./pages/RoomPage";
 import RoomsPage from "./pages/RoomsPage";
 import PagesPage from "./pages/PagesPage";
 import ContactPage from "./pages/ContactPage";
@@ -54,6 +55,11 @@ const App = () => {
                 {
                     path: '/rooms',
                     element: <RoomsPage rooms={rooms} />,
+                },
+                {
+                    path: '/rooms/:roomId',
+                    element: <RoomPage />,
+                    loader: roomDataLoader,
                 },
                 {
                     path: '/pages',

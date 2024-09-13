@@ -55,7 +55,7 @@ const HomePage = () => {
                             <div key={index} className="relative">
                                 <img src={image.path} alt="background hero image"/>
                                 <div 
-                                    className={`absolute top-0 left-0 w-full h-full bg-color-2 bg-opacity-70 px-[5rem] flex items-center justify-center font-poppins `}
+                                    className={`absolute top-0 left-0 w-full h-full bg-color-6 bg-opacity-70 px-[5rem] flex items-center justify-center font-poppins `}
                                 >
                                     <div 
                                     className={`flex flex-col items-center justify-center transition-all duration-300 ease-in `}
@@ -69,7 +69,7 @@ const HomePage = () => {
                                             { image.hotel }
                                         </motion.h2>
                                         <motion.h1 
-                                            className={`text-[5.3rem] mb-7 font-[500] text-white`} 
+                                            className={`text-[5rem] mb-7 font-[500] text-white`} 
                                             initial={{ opacity: image.initialStyle.opacity, x: image.initialStyle.x, y: image.initialStyle.y }}
                                             animate={{ opacity: activeSlide === image.slideId ? image.animatedStyle.opacity : image.initialStyle.opacity, x: activeSlide === image.slideId ? image.animatedStyle.x : image.initialStyle.x , y: activeSlide === image.slideId ? image.animatedStyle.y : image.initialStyle.y}}
                                             transition={{ duration: 0.8, delay: 2.3, easings: 'easeIn'}}

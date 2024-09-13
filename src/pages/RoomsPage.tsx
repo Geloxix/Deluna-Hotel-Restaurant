@@ -10,8 +10,7 @@ import Box from "@mui/material/Box";
 
 import sectionBg from "../assets/images/sectionBg.png";
 
-
-import Rooms from "../components/rooms-page/Rooms";
+import Rooms from "../components/rooms-page-components/Rooms";
 interface RoomsPageProps  {
     rooms: RoomsTypes[];
 };
@@ -31,14 +30,14 @@ const RoomsPage = ({ rooms }: RoomsPageProps ) => {
                 <img src={sectionBg} alt="" className=""/>
                 <div className="absolute top-0 bottom-0 w-full bg-color-6 opacity-900 flex items-center justify-center flex-col">
                     <h1 className="z-[999] text-white text-3xl mb-3">Our Rooms</h1>
-                    <Link to="#" className="z-[9999] text-white " >
-                         Rooms
+                    <Link to="/rooms" className="z-[9999] text-white " >
+                         rooms
                     </Link>
                 </div>
                 
             </div>
             
-            <div className="flex justify-between items-start px-[12rem]">
+            <div className="flex justify-evenly items-start px-[15rem]">
                 <ul>
                     {
                         rooms.map((room: RoomsTypes) => (

@@ -1,5 +1,5 @@
 import { RoomsTypes } from "../../constants/types";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 import { FaRightLong } from "react-icons/fa6";
 
@@ -12,7 +12,7 @@ const Rooms = ({ room }: RoomsProps) => {
     const roomServices = room.services.slice(0, 10);
 
     return (
-        <div className=" flex font-poppins mt-[4rem]">
+        <div className="flex font-poppins mt-[4rem]">
             <div className="mr-[40px]">
                 <img 
                     src={room.img} 
@@ -54,7 +54,7 @@ const Rooms = ({ room }: RoomsProps) => {
                 </div>
 
                 <Link 
-                    to={`/rooms/${room.roomId}`}
+                    to={`/rooms/${room.id}`}
                     className="font-[500] flex items-center gap-2 text-[1.1em] text-color-1 hover:text-color-2 transition-all duration-300"
                 >
                     View details

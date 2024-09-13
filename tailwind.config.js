@@ -16,6 +16,7 @@ export default {
             'color-4': '#D2D2D2',
             'color-5': '#B1B1B1',
             'color-6': '#0E2737B3',
+            'color-7': '#1A1A1A',
          },
          transitionDuration : {
             "500ms": "500ms",

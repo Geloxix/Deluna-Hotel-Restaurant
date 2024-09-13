@@ -3,6 +3,7 @@ export interface RoomsTypes {
     roomId: string;
     roomName: string;
     img: string;
+    description: string;
     pricePerDay: number;
     size: string;
     capacity: string;
