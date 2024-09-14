@@ -22,7 +22,7 @@ const AboutUs = () => {
                
             });
         },{
-            threshold: 0.1, // trigger an animation when element is half visible
+            threshold: 0, // trigger an animation when element is half visible
         });
 
         if (ref.current) {

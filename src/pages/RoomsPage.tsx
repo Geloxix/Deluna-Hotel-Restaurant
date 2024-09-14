@@ -7,9 +7,13 @@ import { RoomsTypes } from "../constants/types";
 //material UI
 import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import FormControl from "@mui/material/FormControl";
+
 
 import sectionBg from "../assets/images/sectionBg.png";
-
 import Rooms from "../components/rooms-page-components/Rooms";
 interface RoomsPageProps  {
     rooms: RoomsTypes[];
@@ -17,11 +21,23 @@ interface RoomsPageProps  {
 
 const RoomsPage = ({ rooms }: RoomsPageProps ) => {
 
-    const [ value, setValue ] = useState<number[]>([0, 50]);
+    const [ price, setPrice ] = useState<number[]>([0, 50]);
+    const [ checkIn, setCheckIn ] = useState<string>('');
+    const [ checkOut, setCheckOut ] = useState<string>('');
+    const [ adultsCount, setAdultCount ] = useState<string>('');
+    const [ childrensCount, setChildrensCount ] = useState<string>('');
 
 
     const handleChangeNumber = (event: Event, newValue: number | number[]) => {
-        setValue(newValue as number[]);
+        setPrice(newValue as number[]);
+    };
+
+    const handleSubmitForm = async(e) => {
+        e.preventDefault();
+
+        console.log("Check in", checkIn);
+        console.log("Check out", checkOut);
+        console.log("Total Person:", adultsCount + childrensCount);
     };
 
     return (
@@ -37,7 +53,7 @@ const RoomsPage = ({ rooms }: RoomsPageProps ) => {
                 
             </div>
             
-            <div className="flex justify-evenly items-start px-[15rem]">
+            <div className="flex items-start px-[15rem] py-10">
                 <ul>
                     {
                         rooms.map((room: RoomsTypes) => (
@@ -49,8 +65,8 @@ const RoomsPage = ({ rooms }: RoomsPageProps ) => {
                     }
                 </ul>
 
-                <div className="justify-start py-[5rem] font-poppins">
-                    <form action="" className="">
+                <Box className="justify-start py-[5rem] font-poppins">
+                    <form action="" onSubmit={handleSubmitForm} className="">
                         <div className="mb-4">
                             <h1 className="text-xl mb-4 text-color-3">Date</h1>
 
@@ -60,43 +76,74 @@ const RoomsPage = ({ rooms }: RoomsPageProps ) => {
                                     name="checkIn" 
                                     id="checkIn" 
                                     placeholder="Check in"
-                                    className="room-form-inputs w-full" />
+                                    className="room-form-inputs w-[200px]" 
+                                    value={checkIn}
+                                    onChange={(e) => setCheckIn(e.target.value)}
+                                />
                                 <input 
                                     type="date" 
                                     name="checkOut"
                                     id="checkOut" 
                                     placeholder="Check out"
-                                    className="room-form-inputs w-full border-r-0" />
+                                    className="room-form-inputs w-[200px]" 
+                                    value={checkOut}
+                                    onChange={(e) => setCheckOut(e.target.value)}
+                                />
                             </div> 
                         </div>
 
                         <div className="mb-10">
                             <h1 className="text-xl mb-4 text-color-3">Guests</h1>
 
-                            <div className="flex gap-4">
-                                <input 
-                                    type="number" 
-                                    name="" id=""
-                                    placeholder="Adult"
-                                    className="room-form-inputs" />
-                                <input 
-                                    type="number" 
-                                    name="" id=""
-                                    placeholder="Children"
-                                    className="room-form-inputs" />
+                            <div className="flex justify-between gap-5 font-poppins">
+                                <FormControl className="flex flex-col w-full" sx={{ fontFamily: 'font-poppins' }}>
+                                    <InputLabel id="adult" className="text-color-7">Adult</InputLabel>
+                                    <Select 
+                                        labelId="adult"
+                                        id="adult"
+                                        label="Adult"
+                                        value={adultsCount}
+                                        onChange={(e: SelectChangeEvent) => setAdultCount(e.target.value)}
+                                    >
+                                        <MenuItem value={1}>01</MenuItem>
+                                        <MenuItem value={2}>02</MenuItem>
+                                        <MenuItem value={3}>03</MenuItem>
+                                        <MenuItem value={4}>04</MenuItem>
+                                        <MenuItem value={5}>05</MenuItem>
+                                        <MenuItem value={6}>06</MenuItem>
+                                    </Select>
+                                </FormControl>
+
+                                <FormControl className="flex flex-col w-full">
+                                    <InputLabel id="children">Children</InputLabel>
+                                    <Select 
+                                        name="children" 
+                                        labelId="children"
+                                        label="Children"
+                                        value={childrensCount}
+                                        onChange={(e: SelectChangeEvent) => setChildrensCount(e.target.value) }
+                                    >
+                                        <MenuItem value={1}>01</MenuItem>
+                                        <MenuItem value={2}>02</MenuItem>
+                                        <MenuItem value={3}>03</MenuItem>
+                                        <MenuItem value={4}>04</MenuItem>
+                                        <MenuItem value={5}>05</MenuItem>
+                                        <MenuItem value={6}>06</MenuItem>
+                                    </Select>
+                                </FormControl>
                             </div>
                             
                         </div>
 
-                        <div className="mb-10">
+                        <div className="mb-10 text-color-7">
                             <h1
                                 className="mb-3 text-xl font-[400]"                            
                             >
-                                {`Max Price $${value[0]} - $${value[value.length - 1]}`}</h1>
-                            <Box sx={{ width: '90%', size: 'meduim', color: '#1cc3b2' }}>
+                                {`Max Price:  $${price[0]} - $${price[price.length - 1]}`}</h1>
+                            <Box sx={{ width: '100%', size: 'meduim', color: '#1cc3b2' }}>
                              <Slider
                                     getAriaLabel={() => 'Price range'}
-                                    value={value}
+                                    value={price}
                                     max={3000}
                                     onChange={handleChangeNumber}
                                     valueLabelDisplay="auto"
@@ -111,7 +158,7 @@ const RoomsPage = ({ rooms }: RoomsPageProps ) => {
                             className="py-4 px-6 bg-color-1 w-full text-white rounded-full hover:text-color-2 hover:bg-white transition-all duration-300 hover:shadow-lg"
                         >Check Availability</button>
                     </form>
-                </div>
+                </Box>
             </div>
         </section>
     );

@@ -12,7 +12,7 @@ const Rooms = ({ room }: RoomsProps) => {
     const roomServices = room.services.slice(0, 10);
 
     return (
-        <div className="flex font-poppins mt-[4rem]">
+        <div className="flex font-poppins mt-[3rem]">
             <div className="mr-[40px]">
                 <img 
                     src={room.img} 
@@ -36,7 +36,7 @@ const Rooms = ({ room }: RoomsProps) => {
 
                         <p>
                             <span className="room-text-span">Capacity:</span> <br />
-                            {room.capacity}
+                            {`${room.capacity} persons`}
                         </p>
                     </div>
 

@@ -19,7 +19,9 @@ const NavBar = () => {
         <header className="font-poppins  w-full z-[9999]">
             <SocMed />
             <nav className="flex items-center justify-between px-[15rem] h-[80px] bg-white">
-                <h1 className="font-semibold text-4xl text-color-1">De Luna</h1>
+                <h1 className="font-[500] text-4xl text-color-7">
+                    De <span className="text-color-1">Luna</span>
+                </h1>
                 <ul className="flex items-center text-[1.1em] font-[500]">
                     {
                         navLinks.map((navLink) => (
