@@ -9,8 +9,6 @@ import Room from "../components/rooms-page-components/Room";
 
 const RoomPage = () => {
     const room = useLoaderData() as RoomsTypes;
-
-    console.log(room);
     
     return (
         <section>

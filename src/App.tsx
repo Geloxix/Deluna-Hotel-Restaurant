@@ -5,6 +5,9 @@ import 'animate.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { RoomsTypes } from "./constants/types";
+import { RoomsContext } from "./constants/roomsContext";
+
 //main layout
 import MainLayOut from "./layout/MainLayOut";
 
@@ -13,31 +16,47 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import RoomPage, { roomDataLoader} from "./pages/RoomPage";
 import RoomsPage from "./pages/RoomsPage";
+import AvailableRoomsPage from "./pages/AvailableRoomsPage";
 import PagesPage from "./pages/PagesPage";
 import ContactPage from "./pages/ContactPage";
 
 
 const App = () => {
-    const [ rooms, setRooms ] = useState([]);
+    const [ rooms, setRooms ] = useState<RoomsTypes []>([]);
+    const [ availableRooms, setAvailableRooms ] = useState<RoomsTypes []>([]);
     const [ error, setError ] = useState<string>();
+
 
     useEffect(() => {
 
         const fetchRooms = async() => {
             try {
-                const res = await axios.get('/api/rooms');
+                const res = await axios.get(`/api/rooms`);
                 setRooms(res.data);
 
-            } catch (error: any) {
-                setError(error.message);
+            } catch (err: any) {
+                setError(err.message);
+                console.log(error);
             } 
 
         };
 
-
         fetchRooms();
-
     },[]);
+
+
+    const handleGetAvailableRooms = async (totalCapacity: number) => {
+        try {
+            const res = await axios.get(`/api/rooms`);
+            const availRooms = res.data
+            setAvailableRooms(availRooms.filter((room: RoomsTypes) => room.capacity <= totalCapacity && room.available));
+        } catch (err: any) { 
+            setError(err.message); 
+            console.log(err);  
+        }
+    };
+
+    
 
     const router = createBrowserRouter([
         {
@@ -54,7 +73,11 @@ const App = () => {
                 },
                 {
                     path: '/rooms',
-                    element: <RoomsPage rooms={rooms} />,
+                    element: <RoomsPage rooms={rooms} handleGetAvailableRooms={handleGetAvailableRooms}  />,
+                },
+                {
+                    path: '/availableRooms',
+                    element: <AvailableRoomsPage availableRooms={availableRooms}  />
                 },
                 {
                     path: '/rooms/:roomId',
@@ -75,7 +98,9 @@ const App = () => {
 
 
     return (
-        <RouterProvider router={router} />
+        <RoomsContext.Provider value={availableRooms}>
+            <RouterProvider router={router} />
+        </RoomsContext.Provider>
     );
 };
 

@@ -22,7 +22,7 @@ const AboutUs = () => {
                
             });
         },{
-            threshold: 0, // trigger an animation when element is half visible
+            threshold: 0.1, // trigger an animation when element is half visible
         });
 
         if (ref.current) {
@@ -38,9 +38,6 @@ const AboutUs = () => {
     },[ref]);
     
     let animation = intersecting ? { opacity: 100, y: 0 } : {};
-
-    console.log(ref.current);
-    
 
     return (
         <div className="h-screen pt-[100px] px-[15rem] font-poppins">

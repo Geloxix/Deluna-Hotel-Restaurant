@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { FormEvent, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 //utility
 import { RoomsTypes } from "../constants/types";
@@ -15,29 +15,47 @@ import FormControl from "@mui/material/FormControl";
 
 import sectionBg from "../assets/images/sectionBg.png";
 import Rooms from "../components/rooms-page-components/Rooms";
+
 interface RoomsPageProps  {
     rooms: RoomsTypes[];
+    handleGetAvailableRooms: (args: number) => void;
 };
 
-const RoomsPage = ({ rooms }: RoomsPageProps ) => {
+const RoomsPage = ({ rooms, handleGetAvailableRooms }: RoomsPageProps ) => {
+    
+    const navigate = useNavigate();
+    
 
     const [ price, setPrice ] = useState<number[]>([0, 50]);
     const [ checkIn, setCheckIn ] = useState<string>('');
     const [ checkOut, setCheckOut ] = useState<string>('');
-    const [ adultsCount, setAdultCount ] = useState<string>('');
+    const [ adultsCount, setAdultCount ] = useState<string>(''); 
     const [ childrensCount, setChildrensCount ] = useState<string>('');
 
-
+    // function that track the value of slider 
     const handleChangeNumber = (event: Event, newValue: number | number[]) => {
         setPrice(newValue as number[]);
     };
-
-    const handleSubmitForm = async(e) => {
+    
+    let totalCapacity = parseInt(adultsCount) + parseInt(childrensCount);
+    
+    //function that handle submitting form
+    const handleSubmitForm = async(e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        console.log("Check in", checkIn);
-        console.log("Check out", checkOut);
-        console.log("Total Person:", adultsCount + childrensCount);
+        //call the handleGetAvailableRooms
+        handleGetAvailableRooms(totalCapacity);
+
+        //filtered the array that passed the condition in callback
+        // const availRoom = availRooms.filter(room => room.capacity <= parseInt(adultsCount) + parseInt(childrensCount) && room.available && room.pricePerDay >= price[0] && room.pricePerDay <= price[price.length - 1]);
+
+        if (new Date(checkIn) >= new Date(checkOut)) {
+            alert('Check in date must be later than Check out date!');
+            return;
+        } 
+
+   
+        return navigate('/availableRooms');
     };
 
     return (

@@ -6,7 +6,8 @@ export interface RoomsTypes {
     description: string;
     pricePerDay: number;
     size: string;
-    capacity: string;
+    available: boolean;
+    capacity: number;
     bed: string;
     services: string;
 }; 

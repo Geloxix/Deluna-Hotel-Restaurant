@@ -8,6 +8,7 @@
             "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis incidunt numquam beatae a. Similique, laudantium neque! Vitae iusto atque nobis ut. Porro itaque, dolor ipsum error exercitationem suscipit earum quos.",
             "size": "30 ft",
             "pricePerDay": 300,
+            "available": true,
             "capacity": 7,
             "bed": "Kings Bed",
             "services": "Television, Wifi, Aircondition"
@@ -20,6 +21,7 @@
             "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis incidunt numquam beatae a. Similique, laudantium neque! Vitae iusto atque nobis ut. Porro itaque, dolor ipsum error exercitationem suscipit earum quos.",
             "size": "30 ft",
             "pricePerDay": 400,
+            "available": true,
             "capacity": 4,
             "bed": "Kings Bed",
             "services": "Television, Wifi, Aircondition"
@@ -32,6 +34,7 @@
             "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis incidunt numquam beatae a. Similique, laudantium neque! Vitae iusto atque nobis ut. Porro itaque, dolor ipsum error exercitationem suscipit earum quos.",
             "size": "30 ft",
             "pricePerDay": 500,
+            "available": true,
             "capacity": 6,
             "bed": "Kings Bed",
             "services": "Television, Wifi, Aircondition"
@@ -44,6 +47,7 @@
             "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis incidunt numquam beatae a. Similique, laudantium neque! Vitae iusto atque nobis ut. Porro itaque, dolor ipsum error exercitationem suscipit earum quos.",
             "size": "30 ft",
             "pricePerDay": 600,
+            "available": true,
             "capacity": 7,
             "bed": "Kings Bed",
             "services": "Television, Wifi, Aircondition"
@@ -56,6 +60,7 @@
             "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis incidunt numquam beatae a. Similique, laudantium neque! Vitae iusto atque nobis ut. Porro itaque, dolor ipsum error exercitationem suscipit earum quos.",
             "size": "40 ft",
             "pricePerDay": 900,
+            "available": true,
             "capacity": 8,
             "bed": "Kings Bed",
             "services": "Television, Wifi, Aircondition"
@@ -68,6 +73,7 @@
             "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis incidunt numquam beatae a. Similique, laudantium neque! Vitae iusto atque nobis ut. Porro itaque, dolor ipsum error exercitationem suscipit earum quos.",
             "size": "50 ft",
             "pricePerDay": 800,
+            "available": true,
             "capacity": 9,
             "bed": "Kings Bed",
             "services": "Television, Wifi, Aircondition"
