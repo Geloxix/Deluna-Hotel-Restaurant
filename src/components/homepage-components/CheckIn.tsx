@@ -1,55 +1,121 @@
+import { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const CheckIn = () => {
+
+interface CheckInProps {
+    handleGetAvailableRooms: (args: number) => void; 
+};
+
+const CheckIn = ({ handleGetAvailableRooms }: CheckInProps) => {
+    const navigate = useNavigate();
+
+
+    const [ checkIn, setCheckIn ] = useState<string>(''); 
+    const [ checkOut, setCheckOut ] = useState<string>('');
+    const [ room, setRoom ] = useState<string>('');
+    const [ adultsCount, setAdultsCount ] = useState<string>('');
+    const [ childrensCount, setChildrensCount ] = useState<string>('');
+
+
+    let totalCountPersonsCount = parseInt(adultsCount) + parseInt(childrensCount);
+
+    const handleSearchRooms = async(e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        handleGetAvailableRooms(totalCountPersonsCount);
+
+        if (new Date(checkOut) <= new Date(checkIn) ) {
+            alert('Check out must be later than Check in date');
+            return;
+        }
+
+        return navigate(`/availableRooms`);
+    };
+
     return(
         <div className="flex items-center justify-center absolute bg-transparent bottom-[-300px] w-full font-poppins">
-            <form action="" className="flex items-center gap-10 px-[60px] py-[50px] bg-white rounded-xl shadow-lg">
+            <form 
+                onSubmit={handleSearchRooms}
+                className="flex items-center gap-10 px-[60px] py-[50px] bg-white rounded-xl shadow-lg">
                 <div className="form-divs">
                     <label htmlFor="">Check in</label>
-                    <input type="date" name="checkIn" id="checkIn" className="form-divs-input" />
+                    <input 
+                        type="date" 
+                        name="checkIn" 
+                        id="checkIn" 
+                        className="form-divs-input" 
+                        value={checkIn}
+                        onChange={(e) => setCheckIn(e.target.value)}
+                    />
                 </div>
                 
                 <div className="form-divs">
                     <label htmlFor="checkOut">Check Out</label>
-                    <input type="date" name="checkOut" id="checkOut" className="form-divs-input" />
+                    <input 
+                        type="date" 
+                        name="checkOut" 
+                        id="checkOut"
+                        className="form-divs-input" 
+                        value={checkOut}
+                        onChange={(e) => setCheckOut(e.target.value)}
+                    />
                 </div>
 
                 <div className="form-divs">
                     <label htmlFor="room">Room</label>
-                    <select name="room" id="room" className="form-divs-select">
-                        <option value="01">01</option>
-                        <option value="02">02</option>
-                        <option value="03">03</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
+                    <select 
+                        name="room" 
+                        id="room" 
+                        className="form-divs-select"
+                        value={room}
+                        onChange={(e) => setRoom(e.target.value)}
+                    >
+                        <option value={1}>01</option>
+                        <option value={2}>02</option>
+                        <option value={3}>03</option>
+                        <option value={4}>04</option>
+                        <option value={5}>05</option>
+                        <option value={6}>06</option>
                     </select>
                 </div>
 
                 <div className="form-divs">
                     <label htmlFor="adult">Adult</label>
-                    <select name="adult" id="adult" className="form-divs-select">
-                        <option value="01">01</option>
-                        <option value="02">02</option>
-                        <option value="03">03</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
+                    <select 
+                        name="adult" 
+                        id="adult" 
+                        className="form-divs-select"
+                        value={adultsCount}
+                        onChange={(e) => setAdultsCount(e.target.value)}
+                    >
+                        <option value={1}>01</option>
+                        <option value={2}>02</option>
+                        <option value={3}>03</option>
+                        <option value={4}>04</option>
+                        <option value={5}>05</option>
+                        <option value={6}>06</option>
                     </select>
                 </div>
 
                 <div className="form-divs">
                     <label htmlFor="children">Children</label>
-                    <select name="children" id="children" className="form-divs-select">
-                        <option value="01">01</option>
-                        <option value="02">02</option>
-                        <option value="03">03</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
+                    <select 
+                        name="children" 
+                        id="children" 
+                        className="form-divs-select"
+                        value={childrensCount}
+                        onChange={(e) => setChildrensCount(e.target.value)}
+                    >
+                        <option value={1}>01</option>
+                        <option value={2}>02</option>
+                        <option value={3}>03</option>
+                        <option value={4}>04</option>
+                        <option value={5}>05</option>
+                        <option value={6}>06</option>
                     </select>
                 </div>
 
-                <button type="submit" className="px-[5rem] mb-[-22px]  py-[1rem] bg-color-1  text-white hover:text-color-1 hover:bg-white hover:shadow-2xl transition-all duration-700ms">Check Availability</button>
+                <button type="submit" className="px-[5rem] mb-[-22px]  py-[1rem] bg-color-1  text-white hover:text-color-1 hover:bg-white hover:shadow-2xl transition-all duration-700ms">Search</button>
             </form>
         </div>
     );

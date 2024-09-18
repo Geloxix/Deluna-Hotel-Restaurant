@@ -11,7 +11,7 @@ const Room = ({ room  }: RoomProps) => {
                 <img 
                     src={room.img} 
                     alt={room.roomName}
-                    className="w-[50%]"
+                    className="w-[800px]"
                  />
                  <div>
                     <h1>{ room.roomName }</h1>

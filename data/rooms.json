@@ -10,7 +10,14 @@
             "pricePerDay": 300,
             "available": true,
             "capacity": 7,
-            "bed": "Kings Bed",
+            "room": 2,
+            "livingRoom": 1,
+            "bathRoom": 2,
+            "kitchen": {
+                "squareMeter": 30,
+                "count": 1
+            },
+            "beds": 2,
             "services": "Television, Wifi, Aircondition"
         },
         {
@@ -23,7 +30,15 @@
             "pricePerDay": 400,
             "available": true,
             "capacity": 4,
-            "bed": "Kings Bed",
+            "room": 1,
+            "livingRoom": 1,
+            "bathRoom": 1,
+            "kitchen": {
+                "squareMeter": 20,
+                "count": 1
+            },
+
+            "beds": 1,
             "services": "Television, Wifi, Aircondition"
         },
         {
@@ -36,7 +51,14 @@
             "pricePerDay": 500,
             "available": true,
             "capacity": 6,
-            "bed": "Kings Bed",
+            "room": 2,
+            "livingRoom": 2,
+            "bathRoom": 2,
+            "kitchen": {
+                "squareMeter": 32,
+                "count": 1
+            },
+            "beds": 3,
             "services": "Television, Wifi, Aircondition"
         },
         {
@@ -49,7 +71,14 @@
             "pricePerDay": 600,
             "available": true,
             "capacity": 7,
-            "bed": "Kings Bed",
+            "room": 2,
+            "livingRoom": 2,
+            "bathRoom": 2,
+            "kitchen": {
+                "squareMeter": 38,
+                "count": 1
+            },
+            "beds": 4,
             "services": "Television, Wifi, Aircondition"
         },
         {
@@ -62,7 +91,14 @@
             "pricePerDay": 900,
             "available": true,
             "capacity": 8,
-            "bed": "Kings Bed",
+            "room": 3,
+            "livingRoom": 3,
+            "bathRoom": 2,
+            "kitchen": {
+                "squareMeter": 40,
+                "count": 1
+            },
+            "beds": 5,
             "services": "Television, Wifi, Aircondition"
         },
         {
@@ -75,7 +111,14 @@
             "pricePerDay": 800,
             "available": true,
             "capacity": 9,
-            "bed": "Kings Bed",
+            "room": 4,
+            "livingRoom": 3,
+            "bathRoom": 2,
+            "kitchen": {
+                "squareMeter": 40,
+                "count": 1
+            },
+            "beds": 5,
             "services": "Television, Wifi, Aircondition"
         }
     ]

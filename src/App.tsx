@@ -17,6 +17,7 @@ import AboutPage from "./pages/AboutPage";
 import RoomPage, { roomDataLoader} from "./pages/RoomPage";
 import RoomsPage from "./pages/RoomsPage";
 import AvailableRoomsPage from "./pages/AvailableRoomsPage";
+import AvailableRoomPage, { availableRoomsLoader } from "./pages/AvailableRoomPage";
 import PagesPage from "./pages/PagesPage";
 import ContactPage from "./pages/ContactPage";
 
@@ -45,6 +46,7 @@ const App = () => {
     },[]);
 
 
+    //function that handle getting avaialble rooms
     const handleGetAvailableRooms = async (totalCapacity: number) => {
         try {
             const res = await axios.get(`/api/rooms`);
@@ -65,7 +67,7 @@ const App = () => {
             children: [
                 {
                     path: '/',
-                    element: <HomePage />,
+                    element: <HomePage handleGetAvailableRooms={handleGetAvailableRooms}  />,
                 },
                 {
                     path: '/about',
@@ -73,11 +75,16 @@ const App = () => {
                 },
                 {
                     path: '/rooms',
-                    element: <RoomsPage rooms={rooms} handleGetAvailableRooms={handleGetAvailableRooms}  />,
+                    element: <RoomsPage rooms={rooms} handleGetAvailableRooms={handleGetAvailableRooms} />,
                 },
                 {
                     path: '/availableRooms',
-                    element: <AvailableRoomsPage availableRooms={availableRooms}  />
+                    element: <AvailableRoomsPage availableRooms={availableRooms}  />,
+                },
+                {
+                    path: '/availableRooms/:roomId',
+                    element: <AvailableRoomPage />,
+                    loader: availableRoomsLoader,
                 },
                 {
                     path: '/rooms/:roomId',

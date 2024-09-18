@@ -68,5 +68,5 @@
 
 
 .room-form-inputs {
-    @apply py-4 px-2 text-[0.80em] border-[.15rem] border-zinc-100;
+    @apply py-4 px-2 text-[0.80em] border-[.15rem] border-zinc-100 cursor-pointer;
 }

@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import { useRef, useState } from "react";
@@ -7,11 +8,14 @@ import AboutUs from "../components/homepage-components/AboutUs";
 import AvailableRooms from "../components/homepage-components/AvailableRooms";
 
 import { heroImages } from "../constants/utils";
+import { RoomsTypes } from "../constants/types";
 
+interface HomePageProps {
+    handleGetAvailableRooms: (args: number) => void;
+};
 
+const HomePage = ({ handleGetAvailableRooms }: HomePageProps) => {
 
-
-const HomePage = () => {
     const [ activeSlide, setActiveSlide ] = useState<number>(0);
     const [ currentSlide, setCurrentSlide ] = useState<number>(1);
     let sliderRef = useRef<Slider | null>(null);
@@ -34,7 +38,6 @@ const HomePage = () => {
     };
 
 
-  
     return (
         <section className={``}>
             <div 
@@ -112,7 +115,7 @@ const HomePage = () => {
             </div>
             
             <div>
-                <CheckIn />
+                <CheckIn handleGetAvailableRooms={handleGetAvailableRooms} />
             </div>
             
             <div>

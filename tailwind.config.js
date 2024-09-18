@@ -27,6 +27,7 @@ export default {
          },
          boxShadow: {
             'custom-dark': '4px 4px 15px #E8E8E8',
+            'custom-light': '4px 4px 15px #1cc3b2',
          }
       },
    },

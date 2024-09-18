@@ -43,7 +43,7 @@ const Rooms = ({ room }: RoomsProps) => {
                     <div className="flex item-start">
                         <p className="w-[150px]">
                             <span className="room-text-span">Bed:</span> <br />
-                            { room.bed}
+                            { room.beds } beds
                         </p>
 
                         <p>
@@ -57,7 +57,7 @@ const Rooms = ({ room }: RoomsProps) => {
                     to={`/rooms/${room.id}`}
                     className="font-[500] flex items-center gap-2 text-[1.1em] text-color-1 hover:text-color-2 transition-all duration-300"
                 >
-                    View details
+                    See availability
                     <FaRightLong />
                 </Link>
 
