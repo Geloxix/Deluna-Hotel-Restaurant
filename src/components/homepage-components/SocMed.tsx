@@ -5,7 +5,7 @@ import { socmedLinks } from "../../constants/utils";
 
 const SocMed = () => {
     return (
-        <div className="flex items-center justify-between px-[15rem] bg-[#0E2737] text-white h-[48px] text-[0.80em]">
+        <div className="flex items-center justify-between px-[18rem] bg-[#0E2737] text-white h-[48px] text-[0.80em]">
             <div className="flex items-center gap-5 ">
                 <div className="flex items-center gap-1"> 
                     <RiPhoneFill

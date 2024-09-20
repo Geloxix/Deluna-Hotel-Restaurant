@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { RoomsTypes } from "./constants/types";
+import { CheckInDataTypes } from "./constants/checkInContext";
+import { CheckinContext } from "./constants/checkInContext";
 import { RoomsContext } from "./constants/roomsContext";
 
 //main layout
@@ -17,15 +19,26 @@ import AboutPage from "./pages/AboutPage";
 import RoomPage, { roomDataLoader} from "./pages/RoomPage";
 import RoomsPage from "./pages/RoomsPage";
 import AvailableRoomsPage from "./pages/AvailableRoomsPage";
-import AvailableRoomPage, { availableRoomsLoader } from "./pages/AvailableRoomPage";
 import PagesPage from "./pages/PagesPage";
 import ContactPage from "./pages/ContactPage";
 
 
 const App = () => {
+
     const [ rooms, setRooms ] = useState<RoomsTypes []>([]);
     const [ availableRooms, setAvailableRooms ] = useState<RoomsTypes []>([]);
     const [ error, setError ] = useState<string>();
+
+
+    const [ nightsCount, setNightsCount ] = useState<number>(0); 
+    const [ adultsCount, setAdultsCount ] = useState<string>('');
+    const [ childrensCount, setChildrensCount ] = useState<string>('');
+    
+    const checkInsData: CheckInDataTypes = {
+        nightsCount,
+        adultsCount,
+        childrensCount
+    };
 
 
     useEffect(() => {
@@ -67,7 +80,7 @@ const App = () => {
             children: [
                 {
                     path: '/',
-                    element: <HomePage handleGetAvailableRooms={handleGetAvailableRooms}  />,
+                    element: <HomePage handleGetAvailableRooms={handleGetAvailableRooms}  setNightsCount={setNightsCount} childrensCount={childrensCount}  setChildrensCount={setChildrensCount} adultsCount={adultsCount} setAdultsCount={setAdultsCount}  />,
                 },
                 {
                     path: '/about',
@@ -79,12 +92,7 @@ const App = () => {
                 },
                 {
                     path: '/availableRooms',
-                    element: <AvailableRoomsPage availableRooms={availableRooms}  />,
-                },
-                {
-                    path: '/availableRooms/:roomId',
-                    element: <AvailableRoomPage />,
-                    loader: availableRoomsLoader,
+                    element: <AvailableRoomsPage availableRooms={availableRooms} nightsCount={nightsCount} />,
                 },
                 {
                     path: '/rooms/:roomId',
@@ -105,8 +113,11 @@ const App = () => {
 
 
     return (
+
         <RoomsContext.Provider value={availableRooms}>
-            <RouterProvider router={router} />
+            <CheckinContext.Provider value={checkInsData}>
+                <RouterProvider router={router} />
+            </CheckinContext.Provider>
         </RoomsContext.Provider>
     );
 };

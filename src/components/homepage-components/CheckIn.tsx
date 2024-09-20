@@ -4,18 +4,21 @@ import { useNavigate } from "react-router-dom";
 
 interface CheckInProps {
     handleGetAvailableRooms: (args: number) => void; 
+    setNightsCount: any;
+    setRoomsCount: any;
+    roomsCount: number;
+    adultsCount: string;
+    setAdultsCount: any;
+    childrensCount: string;
+    setChildrensCount: any;
 };
 
-const CheckIn = ({ handleGetAvailableRooms }: CheckInProps) => {
+const CheckIn = ({ handleGetAvailableRooms, setNightsCount, adultsCount, setAdultsCount, childrensCount, setChildrensCount  }: CheckInProps) => {
     const navigate = useNavigate();
-
 
     const [ checkIn, setCheckIn ] = useState<string>(''); 
     const [ checkOut, setCheckOut ] = useState<string>('');
-    const [ room, setRoom ] = useState<string>('');
-    const [ adultsCount, setAdultsCount ] = useState<string>('');
-    const [ childrensCount, setChildrensCount ] = useState<string>('');
-
+    const [ roomsCount, setRoomsCount ] = useState<string>('');
 
     let totalCountPersonsCount = parseInt(adultsCount) + parseInt(childrensCount);
 
@@ -29,8 +32,16 @@ const CheckIn = ({ handleGetAvailableRooms }: CheckInProps) => {
             return;
         }
 
+        // calclate the checkout date and checkin date and get that days
+        let getMinsDiff = new Date(checkOut) - new Date(checkIn);
+        let getNightsCount = (getMinsDiff  / (1000 * 60 * 60 * 24));
+
+        setNightsCount(getNightsCount);
+
         return navigate(`/availableRooms`);
     };
+
+    
 
     return(
         <div className="flex items-center justify-center absolute bg-transparent bottom-[-300px] w-full font-poppins">
@@ -67,8 +78,8 @@ const CheckIn = ({ handleGetAvailableRooms }: CheckInProps) => {
                         name="room" 
                         id="room" 
                         className="form-divs-select"
-                        value={room}
-                        onChange={(e) => setRoom(e.target.value)}
+                        value={roomsCount}
+                        onChange={(e) => setRoomsCount(e.target.value)}
                     >
                         <option value={1}>01</option>
                         <option value={2}>02</option>

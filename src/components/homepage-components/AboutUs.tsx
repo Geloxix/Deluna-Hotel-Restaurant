@@ -40,9 +40,9 @@ const AboutUs = () => {
     let animation = intersecting ? { opacity: 100, y: 0 } : {};
 
     return (
-        <div className="h-screen pt-[100px] px-[15rem] font-poppins">
-            <div className="flex gap-6 pt-[100px]">
-                <div className="leading-8 basis-[70%]">
+        <div className="h-screen pt-[100px] px-[18rem] font-poppins">
+            <div className="flex justify-between gap-6 pt-[100px]">
+                <div className="leading-8 basis-[75%]">
                     <motion.h1 
                         ref={ref}
                         className="tracking-widest text-lg text-color-1 mb-5 font-[500]"

@@ -8,13 +8,17 @@ import AboutUs from "../components/homepage-components/AboutUs";
 import AvailableRooms from "../components/homepage-components/AvailableRooms";
 
 import { heroImages } from "../constants/utils";
-import { RoomsTypes } from "../constants/types";
 
 interface HomePageProps {
     handleGetAvailableRooms: (args: number) => void;
+    setNightsCount: any;
+    adultsCount: string;
+    setAdultsCount: any;
+    childrensCount: string;
+    setChildrensCount: any;
 };
 
-const HomePage = ({ handleGetAvailableRooms }: HomePageProps) => {
+const HomePage = ({ handleGetAvailableRooms, setNightsCount, adultsCount, setAdultsCount, childrensCount, setChildrensCount }: HomePageProps) => {
 
     const [ activeSlide, setActiveSlide ] = useState<number>(0);
     const [ currentSlide, setCurrentSlide ] = useState<number>(1);
@@ -115,7 +119,8 @@ const HomePage = ({ handleGetAvailableRooms }: HomePageProps) => {
             </div>
             
             <div>
-                <CheckIn handleGetAvailableRooms={handleGetAvailableRooms} />
+                <CheckIn handleGetAvailableRooms={handleGetAvailableRooms}  setNightsCount={setNightsCount} childrensCount={childrensCount}  
+                setChildrensCount={setChildrensCount} adultsCount={adultsCount} setAdultsCount={setAdultsCount}  />
             </div>
             
             <div>
