@@ -19,6 +19,7 @@ const AvailableRooms = () => {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
+        adaptiveHeight: true,
     };
 
     const handleNextImg = () => {
@@ -34,7 +35,7 @@ const AvailableRooms = () => {
         <div className="relative">
             <Slider 
                 {...settings}
-                className=" my-[10rem] w-[100%]"
+                className="mt-[7rem] mb-[5rem]  w-[100%]"
                 ref={slider => { sliderRef = slider}}
                 beforeChange={(current, next) => {setActiveSlide(next)}}
             >
@@ -44,13 +45,13 @@ const AvailableRooms = () => {
                             key={room.id}
                             className=" bg-color-2 mt-[5rem]"
                         >   
-                            <div className={`flex h-[780px]`}>
-                                <img src={room.path} alt="" className="w-[50%]" />
+                            <div className={`flex h-[720px]`}>
+                                <img src={room.path} alt="" className="w-[50%] object-fill" />
                                 <div 
                                     className={` flex flex-col justify-center text-white font-poppins ml-[6rem]`}   
                                 >
                                     <motion.h1 
-                                        className={`text-[3.5rem] mb-[3rem] font-[500]`}
+                                        className={`text-[3rem] mb-[3rem] font-[500]`}
                                         initial={{ opacity: 0, y: 90 }}
                                         animate = {{ opacity: activeSlide === room.slideId ? 1 : 0, y: activeSlide === room.slideId ? 0 : 80 }}
                                         transition={{ duration: 1, delay: 1  }}
@@ -122,15 +123,15 @@ const AvailableRooms = () => {
                     ))
                 }
             </Slider>
-            <div className="absolute bottom-[6px]  z-[999] w-full flex items-center justify-center font-poppins">
+            <div className="absolute z-[999] bottom-[5px] w-full flex items-center justify-center font-poppins">
                 <button 
-                    className=" text-color-2 h-[55px] bg-white w-[150px] hover:bg-color-1 font-[500] transition-all duration-300"
+                    className=" text-color-2 h-[50px] bg-white w-[120px] hover:bg-color-1 font-[500] transition-all duration-300"
                     onClick={handlePrevImg}
                 >
                     Previous
                 </button>
                 <button 
-                    className=" bg-color-1 w-[150px] h-[55px] text-white flex items-center justify-center gap-2 hover:bg-zinc-800 font-[500]  transition-all duration-300"
+                    className=" bg-color-1 w-[120px] h-[50px] text-white flex items-center justify-center gap-2 hover:bg-zinc-800 font-[500]  transition-all duration-300"
                     onClick={handleNextImg}
                 >
                     Next

@@ -1,10 +1,11 @@
-
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import { useRef, useState } from "react";
 
 import CheckIn from "../components/homepage-components/CheckIn";
 import AboutUs from "../components/homepage-components/AboutUs";
+import Guests from "../components/homepage-components/Guests";
+import Footer from "../components/homepage-components/Footer";
 import AvailableRooms from "../components/homepage-components/AvailableRooms";
 
 import { heroImages } from "../constants/utils";
@@ -39,16 +40,16 @@ const HomePage = ({ handleGetAvailableRooms, setNightsCount, adultsCount, setAdu
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3500,
+        adaptiveHeight: true
     };
 
 
     return (
-        <section className={``}>
+        <section className="overflow-hidden">
             <div 
                 className="home" 
-                style={{ width: '100%', margin: '0 auto', animationDelay: '900ms' }} 
+                style={{  animationDelay: '900ms' }} 
             >   
-                
                 
                 <Slider 
                     {...settings } 
@@ -68,7 +69,7 @@ const HomePage = ({ handleGetAvailableRooms, setNightsCount, adultsCount, setAdu
                                     className={`flex flex-col items-center justify-center transition-all duration-300 ease-in `}
                                     >
                                         <motion.h2 
-                                            className={`text-white text-[1em] font-[500]  mb-6 tracking-[0.3em] `} 
+                                            className={`text-white text-[1em] font-[500] mb-6 tracking-[0.3em] `} 
                                             initial={{ opacity: image.initialStyle.opacity, x: image.initialStyle.x, y: image.initialStyle.y }}
                                             animate={{ opacity: activeSlide === image.slideId ? image.animatedStyle.opacity : image.initialStyle.opacity, x: activeSlide === image.slideId ? image.animatedStyle.x : image.initialStyle.x , y: activeSlide === image.slideId ? image.animatedStyle.y : image.initialStyle.y}}
                                             transition={{ duration: 0.8, delay: 2, easings: 'easeIn'}}
@@ -76,7 +77,7 @@ const HomePage = ({ handleGetAvailableRooms, setNightsCount, adultsCount, setAdu
                                             { image.hotel }
                                         </motion.h2>
                                         <motion.h1 
-                                            className={`text-[5rem] mb-7 font-[500] text-white`} 
+                                            className={`text-[4.5rem] mb-7 font-[500] text-white`} 
                                             initial={{ opacity: image.initialStyle.opacity, x: image.initialStyle.x, y: image.initialStyle.y }}
                                             animate={{ opacity: activeSlide === image.slideId ? image.animatedStyle.opacity : image.initialStyle.opacity, x: activeSlide === image.slideId ? image.animatedStyle.x : image.initialStyle.x , y: activeSlide === image.slideId ? image.animatedStyle.y : image.initialStyle.y}}
                                             transition={{ duration: 0.8, delay: 2.3, easings: 'easeIn'}}
@@ -118,11 +119,9 @@ const HomePage = ({ handleGetAvailableRooms, setNightsCount, adultsCount, setAdu
                 
             </div>
             
-            <div>
-                <CheckIn handleGetAvailableRooms={handleGetAvailableRooms}  setNightsCount={setNightsCount} childrensCount={childrensCount}  
-                setChildrensCount={setChildrensCount} adultsCount={adultsCount} setAdultsCount={setAdultsCount}  />
-            </div>
-            
+            <CheckIn handleGetAvailableRooms={handleGetAvailableRooms}  setNightsCount={setNightsCount} childrensCount={childrensCount}  
+            setChildrensCount={setChildrensCount} adultsCount={adultsCount} setAdultsCount={setAdultsCount}  />
+    
             <div>
                 <AboutUs/>
             </div>
@@ -130,6 +129,11 @@ const HomePage = ({ handleGetAvailableRooms, setNightsCount, adultsCount, setAdu
             <div>
                <AvailableRooms />
             </div>
+             <div>
+                <Guests />
+            </div>
+
+            <Footer />
         </section>
     );
 };

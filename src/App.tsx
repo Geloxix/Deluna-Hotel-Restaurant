@@ -16,6 +16,7 @@ import MainLayOut from "./layout/MainLayOut";
 //pages
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import BookNowPage from "./pages/BookNowPage";
 import RoomPage, { roomDataLoader} from "./pages/RoomPage";
 import RoomsPage from "./pages/RoomsPage";
 import AvailableRoomsPage from "./pages/AvailableRoomsPage";
@@ -107,7 +108,11 @@ const App = () => {
                     path: '/contact',
                     element: <ContactPage />,
                 }
-            ]
+            ],        
+        },
+        {
+            path: '/book-now',
+            element: <BookNowPage />
         }
     ]);
 

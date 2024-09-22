@@ -12,6 +12,15 @@ import heroBg2 from '../assets/images/hero-bg2.png';
 import heroBg3 from '../assets/images/hero-bg3.png';
 
 
+//Guests image
+import guest1 from '../assets/images/guest1.png';
+import guest2 from '../assets/images/guest2.png';
+import guest3 from '../assets/images/guest3.png';
+import guest4 from '../assets/images/guest4.png';
+
+
+//stars
+import { RiStarSFill } from "@remixicon/react";
 
 //rooms images
 import room1 from '../assets/images/room1.png';
@@ -119,5 +128,38 @@ export const rooms = [
         capacity: '3-5 person', 
         bed: 'King Beds', 
         services: 'Wifi, Bathroom',
+    }
+];
+
+
+
+export const guests = [
+    {
+        id: 1, 
+        img: guest1,
+        guestName: 'Jane Cena',
+        guestOccupation: 'Operation Manager',
+        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quis totam odio cupiditate illum rerum doloremque ipsam lorem15 lorem5  Autem quis totam odio cupiditate illum rerum doloremque ipsam lorem15 lorem5?',
+    },
+    {
+        id: 2, 
+        img: guest2,
+        guestName: 'Mae mayler',
+        guestOccupation: 'CyberSecurity Specialist',
+        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quis totam odio cupiditate illum rerum doloremque lorem15  Autem quis totam odio cupiditate illum rerum doloremque ipsam lorem15 lorem5?',
+    },
+    {
+        id: 3, 
+        img: guest3,
+        guestName: 'J Black',
+        guestOccupation: 'CEO Director',
+        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quis totam odio cupiditate illum rerum  lorem15  Autem quis totam odio cupiditate illum rerum doloremque ipsam lorem15 lorem5?',
+    },
+    {
+        id: 4, 
+        img: guest4,
+        guestName: 'Shane hAha' ,
+        guestOccupation: 'Bussiness Analytics',
+        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quis totam odio cupiditate  lorem15  Autem quis totam odio cupiditate illum rerum doloremque ipsam lorem15 lorem5?',
     }
 ];

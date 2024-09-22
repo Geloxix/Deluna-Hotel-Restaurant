@@ -47,25 +47,32 @@ const Room = ({ room  }: RoomProps) => {
                 </div>
 
                 <div className="flex justify-between">
-                    <div className="basis-[90%]">
+                    <div>
                         <img 
                             src={room.img} alt="" 
                         />
                     </div>
                     
-                    <div className="pl-5 flex flex-col">
-                        <div>
-                            <div className=" flex justify-end gap-4 border-2">
-                                <div className="text-[0.70em]">
-                                    <h3 className="text-end">Good</h3>
-                                    <p className="text-end">500 reviews</p>
+                    <div className="pl-5 flex flex-col basis-[80%]">
+                        <div className="border-[1px] border-color-4 rounded-md mb-2">
+                            <div className="p-2 flex justify-end gap-2 border-color-4 border-b-[1px]">
+                                <div className="">
+                                    <h3 className="text-end font-[500] text-[0.90em]">Good</h3>
+                                    <p className="text-end text-[0.70em]">500 reviews</p>
                                 </div>
-                                <p className="bg-color-1 p-2 rounded-t-md rounded-br-md text-white">9.6</p>
+                                <p className="bg-color-1 p-2 rounded-t-lg rounded-br-lg  text-white">9.6</p>
+
+                            </div>
+
+                            <div className="py-2">
+                                <h3 className="text-[0.90em] ml-4 mb-5">Lorem, ipsum dolor.</h3>
+                                <p className="text-[0.70em] mb-5 px-3 ml-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, ea!</p>
+                                <p className="text-[0.70em] ml-5">toshinori</p>
                             </div>
                         </div>
                         
 
-                        <div>
+                        <div className="border-[1px] border-color-4 rounded-md h-full text-[0.70em] p-3">
                             <h1>Lorem ipsum dolor sit.</h1>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos explicabo iste aspernatur similique</p>
                         </div>

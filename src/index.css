@@ -32,7 +32,7 @@
 }
 
 .home {
-    @apply relative bg-color-2 bg-opacity-10 transition-all;
+    @apply relative bg-color-2  bg-opacity-10 transition-all w-[100%];
 }
 
 .button-container {
@@ -65,7 +65,6 @@
 .room-text-span {
     @apply text-color-5;
 }
-
 
 .room-form-inputs {
     @apply py-4 px-2 text-[0.80em] border-[.15rem] border-zinc-100 cursor-pointer;

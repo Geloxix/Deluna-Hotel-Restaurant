@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 interface CheckInProps {
     handleGetAvailableRooms: (args: number) => void; 
     setNightsCount: any;
-    setRoomsCount: any;
-    roomsCount: number;
     adultsCount: string;
     setAdultsCount: any;
     childrensCount: string;
@@ -44,7 +42,7 @@ const CheckIn = ({ handleGetAvailableRooms, setNightsCount, adultsCount, setAdul
     
 
     return(
-        <div className="flex items-center justify-center absolute bg-transparent bottom-[-300px] w-full font-poppins">
+        <div className="flex items-center justify-center absolute bg-transparent bottom-[-160px] w-full font-poppins">
             <form 
                 onSubmit={handleSearchRooms}
                 className="flex items-center gap-10 px-[60px] py-[50px] bg-white rounded-xl shadow-lg">

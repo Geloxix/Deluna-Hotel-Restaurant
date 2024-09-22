@@ -1,19 +1,10 @@
 import { NavLink, Link } from "react-router-dom";
-import { useState } from "react";
 
 import arrowRightLong from '../../assets/icons/right-long-solid.svg';
 import { navLinks } from "../../constants/utils";
 import SocMed from "./SocMed";
 
-
-import BookNowModal from "./BookNowModal";
-
 const NavBar = () => {
-    const [ open, setOpen ] = useState<boolean>(false);
-
-    const handleOpenModal = () => setOpen(true);
-    const handleCloseModal = () => setOpen(false);
-
 
     return (
         <header className="font-poppins  w-full z-[9999]">
@@ -36,17 +27,17 @@ const NavBar = () => {
                             ))  
                         }     
                     </ul>
-                    <button 
-                        className="bg-color-1 text-white h-full hover:bg-color-2 transition-all ease-linear flex items-center gap-3 px-[2rem]"
-                        onClick={handleOpenModal}
-                    >
-                        Book Now
-                        <img src={arrowRightLong} alt="" className="w-[15px]" />
+                    <button className="bg-color-1 text-white h-full hover:bg-color-2 transition-all ease-linear flex items-center gap-3 px-[2rem]">
+                        <Link  to="/book-now"
+                            className="flex"
+                        >
+                            Book Now
+                            <img src={arrowRightLong} alt="" className="ml-5 w-[15px]" />
+                        </Link>
                     </button>
+                    
                 </nav>
             </div>
-            
-            <BookNowModal open={open} />
         </header>
     );
 };
